@@ -2,10 +2,15 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const CourseListCard = ({ item, index }) => {
+const CourseListCard = ({ item, index, navigation }) => {
+  
   return (
     <View style={styles.cardImageContainer} key={index}>
-      <TouchableOpacity style={{ width: 170, height: 80, backgroundColor: 'white', borderRadius: 5 }} activeOpacity={0.6}>
+      <TouchableOpacity style={{ width: 175, height: 80, backgroundColor: item.color, borderRadius: 5 }} activeOpacity={0.6}
+        onPress={() => {
+          navigation.navigate('courseDescription', item);
+        }}
+      >
         <Icon name="heart-o" color="#4F8EF7" size={15} style={{ position: 'absolute', top: 5, left: 140 }} />
       </TouchableOpacity>
       <Text style={styles.courseName}>{item.name}</Text>
@@ -20,11 +25,10 @@ const CourseListCard = ({ item, index }) => {
   )
 }
 
-export default CourseListCard
-
 const styles = StyleSheet.create({
   cardImageContainer: {
-    paddingVertical: 10
+    paddingVertical: 10,
+    paddingLeft: 12
   },
   courseName: {
     fontSize: 14,
@@ -41,3 +45,5 @@ const styles = StyleSheet.create({
     paddingLeft: 5
   }
 })
+
+export default CourseListCard

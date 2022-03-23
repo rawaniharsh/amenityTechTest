@@ -4,24 +4,25 @@ import CourseDesciptionCard from '../common/courseDesciptionCard';
 import { courses } from '../constants/strings';
 import CourseListCard from '../common/courseListCard';
 
-const MainCoursePage = () => {
+const MainCoursePage = ({navigation}) => {
 
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <ScrollView contentContainerStyle={styles.mainContainer}>
       <StatusBar hidden={true} />
       <CourseDesciptionCard {...courses[0]} />
       <FlatList
+        style={{marginLeft: -8}}
         data={courses}
-        renderItem={CourseListCard}
+        renderItem={({ item, index }) => <CourseListCard item={item} index={index} navigation={navigation}/>}
         numColumns={2}
         key={'_'}
         keyExtractor={(item) => "_" + item.id}
       />
-    </SafeAreaView>
+    </ScrollView>
   )
 }
 
-export default MainCoursePage
+export default MainCoursePage;
 
 const styles = StyleSheet.create({
   mainContainer: {

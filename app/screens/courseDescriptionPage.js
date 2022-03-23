@@ -1,14 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import CourseDesciptionCard from '../common/courseDesciptionCard';
+import { courses } from '../constants/strings';
 
-const CourseDescriptionPage = () => {
+const CourseDescriptionPage = (props) => {
   return (
-    <View>
-      <Text>courseDescriptionPage</Text>
+    <View style={styles.mainContainer}>
+       <CourseDesciptionCard {...courses[0]} />
     </View>
   )
 }
 
-export default CourseDescriptionPage
+export default CourseDescriptionPage;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: 'black'
+  }
+})
