@@ -6,7 +6,7 @@ import { courses } from '../constants/strings';
 const CourseDescriptionPage = (props) => {
   return (
     <View style={styles.mainContainer}>
-       <CourseDesciptionCard {...courses[0]} />
+       <CourseDesciptionCard {...props.route.params} />
     </View>
   )
 }

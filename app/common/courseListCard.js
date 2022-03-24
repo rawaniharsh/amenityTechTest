@@ -1,12 +1,15 @@
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native'
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+const wp = Dimensions.get("window").width;
+const hp = Dimensions.get("window").height;
 
 const CourseListCard = ({ item, index, navigation }) => {
   
   return (
     <View style={styles.cardImageContainer} key={index}>
-      <TouchableOpacity style={{ width: 175, height: 80, backgroundColor: item.color, borderRadius: 5 }} activeOpacity={0.6}
+      <TouchableOpacity style={{ width: wp*0.442, height: hp*0.12, backgroundColor: item.color, borderRadius: 5 }} activeOpacity={0.6}
         onPress={() => {
           navigation.navigate('courseDescription', item);
         }}
@@ -16,6 +19,7 @@ const CourseListCard = ({ item, index, navigation }) => {
       <Text style={styles.courseName}>{item.name}</Text>
       <View style={styles.durationContainer}>
         <Icon
+         style={{ paddingTop: hp*0.003}}
           name="calendar"
           color="#8f8c85"
           size={12} />

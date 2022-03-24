@@ -33,7 +33,7 @@ export const courses = [
     },
     {
         id: 5,
-        name: "Medical Laboratory Science",
+        name: "Medical Laboratory",
         days: "45 Days",
         time: "50 Min",
         color: '#de5f10',

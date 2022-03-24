@@ -1,21 +1,26 @@
-import { StyleSheet, Text, View, Image, StatusBar, SafeAreaView, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native'
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+const wp = Dimensions.get("window").width;
+const hp = Dimensions.get("window").height;
+
 const CourseDesciptionCard = (props) => {
+
   return (
     <View>
-      <Image style={{marginTop: -25}} source={require('../assets/courseImage.jpg')} />
-      <Icon name="heart-o" color="#4F8EF7" size={25} style={{ position: 'absolute', top: 5, left: 370 }} />
+      <Image style={{marginTop: hp*0.03}} source={require('../assets/courseImage.jpg')} />
+      <Icon name="heart-o" color="#4F8EF7" size={25} style={{ position: 'absolute', top: hp*0.04, left: wp-10 }} />
       <Text style={styles.courseName}>{props.name}</Text>
       <View style={styles.durationContainer}>
         <Icon
+         style={{ paddingTop: hp*0.003}}
           name="calendar"
           color="#8f8c85"
           size={12} />
         <Text style={styles.durationDays}>{props.days}</Text>
         <Icon
-          style={{ paddingTop: 2, paddingLeft: 10 }}
+          style={{ paddingTop: hp*0.003, paddingLeft: wp*0.04 }}
           name="clock-o"
           color="#8f8c85"
           size={12} />
@@ -28,7 +33,7 @@ const CourseDesciptionCard = (props) => {
             color="#8f8c85"
             size={20} />
         </View>
-        <View style={[styles.IconContainerView, { marginLeft: 20 }]}>
+        <View style={[styles.IconContainerView, { marginLeft: wp*0.05 }]}>
           <Icon
             name="share"
             color="#4F8EF7"
@@ -43,7 +48,7 @@ const CourseDesciptionCard = (props) => {
           borderBottomColor: '#52504e',
           borderBottomWidth: 1,
           padding: 12,
-          width: 362,
+          width: wp*0.92,
           alignSelf: 'center'
         }}
       />
@@ -52,7 +57,7 @@ const CourseDesciptionCard = (props) => {
           About Course
         </Text>
         <Icon
-          style={{ marginLeft: 252 }}
+          style={{ marginLeft: wp*0.59 }}
           color="#4F8EF7"
           size={18}
           name="arrow-up"
@@ -63,8 +68,7 @@ const CourseDesciptionCard = (props) => {
         style={{
           borderBottomColor: '#52504e',
           borderBottomWidth: 1,
-          padding: 12,
-          width: 362,
+          width: wp*0.92,
           alignSelf: 'center'
         }}
       />
@@ -76,34 +80,34 @@ const styles = StyleSheet.create({
   courseName: {
     fontSize: 20,
     color: '#cfcbc4',
-    paddingTop: 18,
-    paddingLeft: 30,
+    paddingTop: hp*0.02,
+    paddingLeft: wp*0.12,
     fontFamily: 'sans-serif-medium'
   },
   durationContainer: {
     flexDirection: 'row',
-    paddingLeft: 30,
+    paddingLeft:  wp*0.125,
   },
   IconContainer: {
     flexDirection: 'row',
-    paddingLeft: 30,
-    paddingTop: 16
+    paddingLeft: wp*0.12,
+    paddingTop: hp*0.03
   },
   durationDays: {
     fontSize: 12,
     color: '#8f8c85',
     fontFamily: 'sans-serif-medium',
-    paddingLeft: 5
+    paddingLeft: wp*0.01
   },
   IconContainerView: {
-    height: 30, width: 30, borderRadius: 5, backgroundColor: '#52504e', justifyContent: 'center', alignItems: 'center'
+    height: hp*0.05, width: hp*0.05, borderRadius: 5, backgroundColor: '#52504e', justifyContent: 'center', alignItems: 'center'
   },
   startBtn: {
     backgroundColor: '#52504e',
-    height: 30,
+    height:  hp*0.05,
     borderRadius: 5,
-    width: 100,
-    marginLeft: 185,
+    width: wp*0.28,
+    marginLeft: wp*0.39,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -111,24 +115,24 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#4F8EF7',
     fontFamily: 'sans-serif-medium',
-    paddingLeft: 5
+    paddingLeft: wp*0.02
   },
   aboutCourseContainer: {
     flexDirection: 'row',
-    paddingLeft: 25,
-    paddingVertical: 12
+    paddingLeft: wp*0.11,
+    paddingVertical: hp*0.018
   },
   aboutCourseTitle: {
-    fontSize: 15,
+    fontSize: 17,
     color: '#4F8EF7',
     fontFamily: 'sans-serif-medium',
-    paddingLeft: 5,
+    paddingLeft: wp*0.009,
   },
   courseDescText: {
     fontSize: 13,
     color: '#cfcbc4',
     fontFamily: 'sans-serif-medium',
-    paddingHorizontal: 30,
+    paddingHorizontal: wp*0.12,
   }
 })
 
